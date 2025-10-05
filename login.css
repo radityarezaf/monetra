@@ -1,0 +1,17 @@
+body {
+  background-color: #222;
+  height: 100vh;
+  margin: 0;
+}
+
+label {
+  font-weight: 500;
+}
+
+.login-image {
+  background-image: url("img/monetra.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}

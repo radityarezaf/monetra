@@ -1,0 +1,128 @@
+:root {
+  --primary: gold;
+  --light: white;
+  --dark: black;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #222;
+  color: white;
+}
+
+.monetra {
+  font-family: "Cinzel";
+}
+
+.bg-glass {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-header {
+  background-image: url(img/image1.jpg);
+  background-size: cover;
+  height: 100vh;
+}
+
+.master {
+  font-weight: bolder;
+}
+.fw-medium {
+  font-weight: 600 !important;
+}
+
+.fw-semi-bold {
+  font-weight: 700 !important;
+}
+
+/* navbar */
+.navbar-dark .navbar-nav .nav-link {
+  position: relative;
+  margin-left: 25px;
+  padding: 10px 0;
+  font-size: 15px;
+  color: var(--light) !important;
+  font-weight: 500;
+  outline: none;
+  transition: 0.5s;
+}
+
+.sticky-top.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav.lonk.active {
+  color: var(--primary) !important;
+  transition: 0.5s;
+}
+
+.about-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Menu */
+.menu-img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.menu-list:hover {
+  background-color: #000000;
+  border-radius: 5px;
+}
+
+.reservation-img {
+  height: 100vh;
+  object-fit: cover;
+  width: 100%;
+}
+
+.footer a {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+.footer a:hover {
+  color: #f1c40f;
+}
+.copyright a {
+  color: white;
+  text-decoration: none;
+}
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  background-color: #f1c40f;
+  color: black;
+  border: none;
+  outline: none;
+  padding: 14px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#scrollTopBtn:hover {
+  background-color: black;
+  color: #f1c40f;
+}
+
+/* PAYMENT */
+
+.qris-img {
+  width: 250px;
+  height: auto;
+}
