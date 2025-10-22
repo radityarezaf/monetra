@@ -1,0 +1,42 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: monetra_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: monetra
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+      - mysql_data:/var/lib/mysql
+
+  user_service:
+    build: ./user_service
+    container_name: monetra_user_service
+    restart: always
+    ports:
+      - "5001:5001"
+    env_file:
+      - ./user_service/.env
+    depends_on:
+      - mysql
+    volumes:
+      - ./user_service:/app
+
+  product_service:
+    build: ./product_service
+    container_name: monetra_product_service
+    restart: always
+    ports:
+      - "5002:5002"
+    env_file:
+      - ./product_service/.env
+    depends_on:
+      - mysql
+    volumes:
+      - ./product_service:/app
+
+volumes:
+  mysql_data:
