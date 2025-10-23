@@ -11,6 +11,8 @@ services:
     volumes:
       - ./init:/docker-entrypoint-initdb.d
       - mysql_data:/var/lib/mysql
+    networks:
+      - monetra_net
 
   user_service:
     build: ./user_service
@@ -24,6 +26,8 @@ services:
       - mysql
     volumes:
       - ./user_service:/app
+    networks:
+      - monetra_net
 
   product_service:
     build: ./product_service
@@ -37,6 +41,12 @@ services:
       - mysql
     volumes:
       - ./product_service:/app
+    networks:
+      - monetra_net
 
 volumes:
   mysql_data:
+
+networks:
+  monetra_net:
+    driver: bridge
