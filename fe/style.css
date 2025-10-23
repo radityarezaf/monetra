@@ -25,7 +25,7 @@ body {
 }
 
 .hero-header {
-  background-image: url(img/image1.jpg);
+  background-image: url(img/hero-header.jpg);
   background-size: cover;
   height: 100vh;
 }

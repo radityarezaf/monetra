@@ -15,3 +15,10 @@ label {
   height: 100%;
   width: 100%;
 }
+
+#backHomeBtn{
+  width:55px;
+  height:55px;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}

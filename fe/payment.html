@@ -5,74 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Payment Monetra</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-
-      <!-- Icon Font Stylesheet -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+  <style>
+    body{
+      background-image: url("img/monetra.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: white;
+    }
+</style>
 </head>
+
+
 <body>
-    <!-- navbar -->
-    <div class="container-fluid position-relative p-0">
-      <nav
-        class="navbar navbar-expand-lg navbar-dark bg-glass px-4 px-lg-5 py-3"
-      >
-        <a class="navbar-brand p-0">
-          <h1 class="m-0 monetra" style="color: goldenrod">Monetra</h1>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-        >
-          <span class="fa fa-bars"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-nav ms-auto py-0 pe-4">
-            <a href="index.html#home" class="nav-item nav-link">Home</a>
-            <a href="#about" class="nav-item nav-link">About Us</a>
-            <a href="#service" class="nav-item nav-link">Service</a>
-            <a href="#menu" class="nav-item nav-link">Our Menu</a>
-          </div>
-          <a href="register.html" class="btn btn-warning py-2">Sign Up / Login</a>
-        </div>
-      </nav>
+
+  <!-- Tombol Back ke Home -->
+  <a
+    href="index.html"
+    id="backHomeBtn"
+    class="btn btn-warning rounded position-fixed top-0 start-0 m-4  d-flex align-items-center justify-content-center"
+    title="Back to Home"
+    style="width: 45px; height: 45px; font-size: 22px;"
+  >&larr;</a>
+
   <div class="container py-5">
     <div class="text-center mb-4">
       <h1 class="text-warning">Payment Confirmation</h1>
       <p>Please review your reservation details below before completing payment.</p>
     </div>
 
-<div class="card bg-light text-dark p-4 mb-4">
-
-  <h4 class="text-center">Reservation Details</h5>
-  <p><strong>Name:</strong> <span id="resName"></span></p>
-  <p><strong>Email:</strong> <span id="resEmail"></span></p>
-  <p><strong>Date:</strong> <span id="resDate"></span></p>
-  <p><strong>Time:</strong> <span id="resTime"></span></p>
-  <p><strong>People:</strong> <span id="resPeople"></span></p>
-  <p><strong>Phone:</strong> <span id="resPhone"></span></p>
-  <hr>
-  <h4>Total: <span class="text-warning" id="resTotal"></span></h4>
+ <div class="card bg-light text-dark p-4 mx-auto rounded-4" style="max-width: 600px;">
+    <h4 class="text-center">Reservation Details</h4>
+    <p><strong>Name:</strong> <span id="resName"></span></p>
+    <p><strong>Notes:</strong> <span id="resNotes"></span></p>
+    <p><strong>Price:</strong> <span id="resPrice"></span></p>
+  </div>
 </div>
 
-</div>
-<div id="qrisSection" class="text-center mb-4" style="display:none;">
-  <h5>Scan QRIS to Pay</h5>
-  <img src="img/qris.jpg" alt="QRIS Payment" class="img-fluid qris-img">
-</div>
+    <div id="qrisSection" class="text-center mb-4" style="display:none;">
+      <h5>Scan QRIS to Pay</h5>
+      <img src="img/qris.jpg" alt="QRIS Payment" class="img-fluid" style="max-width: 250px;">
+    </div>
 
-<div class="text-center">
-  <button class="btn btn-warning px-4" id="confirmPayment">Confirm Payment</button>
-</div>
+    <div class="text-center">
+      <button class="btn btn-warning px-4" id="confirmPayment">Confirm Payment</button>
+    </div>
+  </div>
 
-<script src="payment.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const notes = params.get("notes");
+    const price = params.get("price");
+
+    document.getElementById("resName").textContent = name || "-";
+    document.getElementById("resNotes").textContent = notes || "-";
+    document.getElementById("resPrice").textContent = price ? "Rp " + Number(price).toLocaleString("id-ID") : "-";
+
+    document.getElementById("confirmPayment").addEventListener("click", () => {
+      document.getElementById("qrisSection").style.display = "block";
+      alert("Payment confirmed! Thank you, " + name);
+    });
+  </script>
 </body>
 </html>
