@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   mysql:
     image: mysql:8.0
@@ -29,18 +31,18 @@ services:
     networks:
       - monetra_net
 
-  product_service:
-    build: ./product_service
-    container_name: monetra_product_service
+  reservation_service:    
+    build: ./reservation_service
+    container_name: monetra_reservation_service
     restart: always
     ports:
       - "5002:5002"
     env_file:
-      - ./product_service/.env
+      - ./reservation_service/.env
     depends_on:
       - mysql
     volumes:
-      - ./product_service:/app
+      - ./reservation_service:/app
     networks:
       - monetra_net
 
