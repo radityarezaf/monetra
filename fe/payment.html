@@ -17,10 +17,7 @@
 </style>
 </head>
 
-
 <body>
-
-  <!-- Tombol Back ke Home -->
   <a
     href="index.html"
     id="backHomeBtn"
@@ -39,6 +36,7 @@
     <h4 class="text-center">Reservation Details</h4>
     <p><strong>Name:</strong> <span id="resName"></span></p>
     <p><strong>Notes:</strong> <span id="resNotes"></span></p>
+    <p><strong>Date:</strong> <span id="resDate"></span></p>
     <p><strong>Price:</strong> <span id="resPrice"></span></p>
   </div>
 </div>
@@ -53,20 +51,6 @@
     </div>
   </div>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");
-    const notes = params.get("notes");
-    const price = params.get("price");
-
-    document.getElementById("resName").textContent = name || "-";
-    document.getElementById("resNotes").textContent = notes || "-";
-    document.getElementById("resPrice").textContent = price ? "Rp " + Number(price).toLocaleString("id-ID") : "-";
-
-    document.getElementById("confirmPayment").addEventListener("click", () => {
-      document.getElementById("qrisSection").style.display = "block";
-      alert("Payment confirmed! Thank you, " + name);
-    });
-  </script>
+<script src="payment.js"></script>
 </body>
 </html>
