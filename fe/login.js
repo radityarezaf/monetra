@@ -15,6 +15,7 @@ document.getElementById("loginForm").addEventListener("submit",async(event)=>{
       if (response.ok) {
         alert("Login successful!");
         localStorage.setItem("token", data.token);
+        localStorage.setItem("userEmail", email);
         window.location.href = "index.html";
       } else {
         alert(data.message || "Login failed");
